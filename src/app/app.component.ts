@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrder } from './models/IOrder';
+
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,12 @@ import { IOrder } from './models/IOrder';
 })
 export class AppComponent implements OnInit {
   title = 'order-tracking-app';
-  orders: IOrder[] = [];
+  
 
 
 
 
   ngOnInit(): void {
-    this.orders = orders-
   }
 
 
