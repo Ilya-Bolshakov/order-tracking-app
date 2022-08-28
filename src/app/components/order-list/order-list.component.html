@@ -1,5 +1,5 @@
 <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders">
+    <a [routerLink]="[order.id]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{order.id}}</h5>
             <small>{{order.visitDate}}</small>
