@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 
@@ -10,6 +9,7 @@ import { OrderComponent } from './components/order/order.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { NavigateComponentComponent } from './components/navigate-component/navigate-component.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter/dropdown-filter.component';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OrderListComponent,
     OrderComponent,
     MainMenuComponent,
-    NavigateComponentComponent
+    NavigateComponentComponent,
+    DropdownFilterComponent,
   ],
   imports: [
     BrowserModule,
