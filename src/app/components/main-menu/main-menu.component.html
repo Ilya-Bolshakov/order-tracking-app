@@ -1,5 +1,5 @@
-  <app-order-list></app-order-list>
-  <div class="btn-group dropup d-grid gap-2 mx-auto">
+<app-order-list></app-order-list>
+<div class="btn-group dropup d-grid gap-2 mx-auto">
     <button class="btn btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Количество заказов на странице
     </button>
@@ -7,45 +7,35 @@
       <li><a class="dropdown-item active" href="#">5</a></li>
       <li><a class="dropdown-item" href="#">10</a></li>
     </ul>
-</div>    
+</div>
 
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end">
-        <div ngbDropdown class="dropdown">
-            <button ngbDropdownToggle type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-              Выпадающая форма
-            </button>
-            <form ngbDropdownMenu class="dropdown-menu p-4 ">
-              <div class="mb-3">
-                <label for="exampleDropdownFormEmail2" class="form-label">Фамилия</label>
-                <input class="form-control" id="exampleDropdownFormEmail2" placeholder="Фамилия...">
-              </div>
-              <div class="mb-3">
-                <label for="exampleDropdownFormPassword2" class="form-label">Пароль</label>
-                <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-              </div>
-              <div class="mb-3">
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-                  <label class="form-check-label" for="dropdownCheck2">
-                    Запомнить меня
-                  </label>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary">Войти</button>
-            </form>
-          </div>
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Следующая</a>
-      </li>
-    </ul>
-  </nav>
+
+<div class="row">
+  <div class="col-sm-8">
+    <app-dropdown-filter></app-dropdown-filter>
+  </div>
+  <div class="col-sm-4">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end"> 
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Следующая</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+</div>
+
+
+
+
+  
   <footer class="footer navbar-fixed-bottom">
     <div class="container">
         <span class="text-muted">Bolshakov inc.</span>
