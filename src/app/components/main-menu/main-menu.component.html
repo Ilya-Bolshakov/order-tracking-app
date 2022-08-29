@@ -1,20 +1,11 @@
 <app-order-list></app-order-list>
-<div class="btn-group dropup d-grid gap-2 mx-auto">
-    <button class="btn btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Количество заказов на странице
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
-      <li><a class="dropdown-item active" href="#">5</a></li>
-      <li><a class="dropdown-item" href="#">10</a></li>
-    </ul>
-</div>
+<app-dropdown-page-size></app-dropdown-page-size>
 
-
-<div class="row">
-  <div class="col-sm-8">
+<div class="row gy-2 mar-minus">
+  <div class="col-sm-8 col-md-12 msm-4 mar">
     <app-dropdown-filter></app-dropdown-filter>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-4 col-md-12">
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end"> 
         <li class="page-item disabled">
@@ -29,14 +20,8 @@
       </ul>
     </nav>
   </div>
-  
 </div>
-
-
-
-
-  
-  <footer class="footer navbar-fixed-bottom">
+<footer class="footer navbar-fixed-bottom">
     <div class="container">
         <span class="text-muted">Bolshakov inc.</span>
     </div>
