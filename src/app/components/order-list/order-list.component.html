@@ -1,5 +1,8 @@
 <div class="list-group">
-    <a [routerLink]="[order.id]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders">
+    <a [routerLink]="[order.id]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders | 
+    paginate : { itemsPerPage: pageModel.pageSize,
+                 currentPage: pageModel.currentPage,
+                 totalItems: pageModel.totalLength }">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{order.id}}</h5>
             <small>{{order.visitDate}}</small>
@@ -7,4 +10,34 @@
           <p class="mb-1">Некоторый заполнитель в абзаце.</p>
           <p>И немного мелкого шрифта.</p>
     </a>
+</div>
+<app-dropdown-page-size (onChanged)="onChanged($event)"></app-dropdown-page-size>
+<div class="row gy-2 mar-minus">
+  <div class="col-sm-8 col-md-12 msm-4 mar">
+    <app-dropdown-filter></app-dropdown-filter>
   </div>
+  <!-- <div class="col-sm-4 col-md-12">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end"> 
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Следующая</a>
+        </li>
+      </ul>
+    </nav>
+  </div> -->
+  <div class="col-sm-4 col-md-12">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <pagination-controls (pageChange)="pageModel.currentPage = $event"
+        previousLabel="Предыдущая"
+        nextLabel="Следующая" ></pagination-controls>
+      </ul>
+    </nav>
+  </div>
+</div>

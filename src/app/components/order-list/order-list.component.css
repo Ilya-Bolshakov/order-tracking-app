@@ -1,0 +1,14 @@
+.my-pagination ::ng-deep .ngx-pagination .current {
+    border-radius: 3px;
+    padding-left: 9px;
+    padding-right: 9px;
+    text-decoration: none;
+  }
+
+.mar {
+    margin-top: 15px;
+}
+
+.mar-minus {
+    margin-right: -0px;
+}
