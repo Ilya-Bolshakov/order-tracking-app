@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IFilterModel } from 'src/app/models/IFilterModel';
 import { IOrder } from 'src/app/models/IOrder';
 import { IPageModel } from 'src/app/models/IPageModel';
 import { OrdersService } from 'src/app/services/orders.service';
@@ -14,6 +15,7 @@ export class OrderListComponent implements OnInit {
 
   orders: IOrder[] = [];
   pageModel!: IPageModel;
+  filterModel!: IFilterModel;
 
   constructor (private service: OrdersService) {
     this.pageModel = {currentPage: 1, pageSize:5, totalLength: 0};
@@ -21,6 +23,11 @@ export class OrderListComponent implements OnInit {
   }
   onChanged(pageSize: number) {
     this.pageModel.pageSize = pageSize;
+  }
+
+  onChangedFilter(filterModel: IFilterModel)
+  {
+    this.filterModel = filterModel;
   }
   ngOnInit(): void {
     this.service.getOrders().subscribe(result => {

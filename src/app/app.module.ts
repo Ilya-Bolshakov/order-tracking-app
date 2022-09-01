@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     NgbModule,
     NgxNavbarModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
