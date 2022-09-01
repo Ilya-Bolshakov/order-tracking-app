@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { OrderComponent } from './components/order/order.component';
-import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { NavigateComponentComponent } from './components/navigate-component/navigate-component.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter/dropdown-filter.component';
@@ -16,6 +15,7 @@ import { CompletedOrdersComponent } from './components/completed-orders/complete
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -23,12 +23,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppComponent,
     OrderListComponent,
     OrderComponent,
-    MainMenuComponent,
     NavigateComponentComponent,
     DropdownFilterComponent,
     DropdownPageSizeComponent,
     PaginationComponentComponent,
     CompletedOrdersComponent,
+    FooterComponent,
     
   ],
   imports: [
