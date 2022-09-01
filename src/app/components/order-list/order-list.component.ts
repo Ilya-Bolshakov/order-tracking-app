@@ -27,12 +27,9 @@ export class OrderListComponent implements OnInit {
 
   onChangedFilter(filterModel: IFilterModel)
   {
-    console.log(this.filterModel);
-    console.log(filterModel);
-    console.log(this.comparableFilterObjects(this.filterModel, filterModel));
-    this.setupNewPropetiesForFilterModel(filterModel);
     if (!this.comparableFilterObjects(this.filterModel, filterModel))
     {
+      this.setupNewPropetiesForFilterModel(filterModel);
       this.service.getOrders().subscribe(result => {
         this.orders = result;
         this.pageModel.totalLength = result.length;
