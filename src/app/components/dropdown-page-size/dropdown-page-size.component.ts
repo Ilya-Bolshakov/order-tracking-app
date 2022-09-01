@@ -7,9 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class DropdownPageSizeComponent implements OnInit {
 
-  @Output() onChangedFilter = new EventEmitter<number>();
+  @Output() onChanged = new EventEmitter<number>();
   change(pageSize:number) {
-    this.onChangedFilter.emit(pageSize);
+    this.onChanged.emit(pageSize);
   }
   constructor() { }
 

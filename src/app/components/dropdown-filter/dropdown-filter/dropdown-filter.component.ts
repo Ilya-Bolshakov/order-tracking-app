@@ -9,12 +9,11 @@ import { IFilterModel } from 'src/app/models/IFilterModel';
 export class DropdownFilterComponent implements OnInit {
 
   model!: IFilterModel;
-  last: string = '';
 
-  @Output() onChanged = new EventEmitter<IFilterModel>();
+  @Output() onChangedFilter = new EventEmitter<IFilterModel>();
 
   changeModel() {
-    this.onChanged.emit(this.model);
+    this.onChangedFilter.emit(this.model);
   }
 
   constructor() { }

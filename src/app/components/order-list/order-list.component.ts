@@ -27,9 +27,32 @@ export class OrderListComponent implements OnInit {
 
   onChangedFilter(filterModel: IFilterModel)
   {
-    this.filterModel = filterModel;
+    console.log(this.filterModel);
+    console.log(filterModel);
+    console.log(this.comparableFilterObjects(this.filterModel, filterModel));
+    this.setupNewPropetiesForFilterModel(filterModel);
+    if (!this.comparableFilterObjects(this.filterModel, filterModel))
+    {
+      this.service.getOrders().subscribe(result => {
+        this.orders = result;
+        this.pageModel.totalLength = result.length;
+      });
+    }
+    
   }
+
+  comparableFilterObjects(firstModel: IFilterModel, secondModel: IFilterModel): boolean {
+    return firstModel.lastName == secondModel.lastName && 
+           firstModel.order == secondModel.order;
+  }
+
+  setupNewPropetiesForFilterModel(filterModel: IFilterModel) {
+    this.filterModel.lastName = filterModel.lastName;
+    this.filterModel.order = filterModel.order;
+  }
+
   ngOnInit(): void {
+    this.filterModel = {lastName: '', order:''};
     this.service.getOrders().subscribe(result => {
       this.orders = result;
       this.pageModel.totalLength = result.length;
