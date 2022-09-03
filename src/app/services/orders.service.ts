@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IFilterModel } from '../models/IFilterModel';
@@ -9,7 +9,7 @@ import { IOrder } from '../models/IOrder';
 })
 export class OrdersService {
 
-  API_URL:string = 'https://localhost:44363/api/OrderTracking';
+  API_URL:string = 'https://localhost:44364/api/OrderTracking';
 
   constructor(private http: HttpClient) { }
 
@@ -109,14 +109,11 @@ export class OrdersService {
   // }
 
   getOrders(filterModel: IFilterModel): Observable<IOrder[]> {
-    console.log("wdwd");
     return this.http.post<IOrder[]>(this.API_URL + '/GetOrders', filterModel);
     //return of(this.orders);
   }
 
-  getOrder(id: number): IOrder {
-    let order: IOrder;
-    order = this.orders.find(e => e.id == id)!;
-    return order;
+  getOrder(id: number): Observable<IOrder> {
+    return this.http.get<IOrder>(this.API_URL + '/GetOrder/' + id);
   }
 }

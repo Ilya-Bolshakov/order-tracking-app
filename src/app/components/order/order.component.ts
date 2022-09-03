@@ -11,16 +11,25 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class OrderComponent implements OnInit, OnDestroy {
   id!: number;
+  order: IOrder;
   private subscription: Subscription;
 
   constructor(private activateRoute: ActivatedRoute, private service: OrdersService) { 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
+    this.order = {
+      id: 0,
+      firstName:'aa',
+      lastName: 'rnd1',
+      visitDate: new Date,
+      nameOrder: 'order1',
+      descritpion: 'desc'
+    };
   }
 
-  order!: IOrder;
-
   ngOnInit(): void {
-    this.order = this.service.getOrder(this.id); 
+    this.service.getOrder(this.id).subscribe(result => {
+      this.order = result;
+    }); 
   }
 
   ngOnDestroy(): void {

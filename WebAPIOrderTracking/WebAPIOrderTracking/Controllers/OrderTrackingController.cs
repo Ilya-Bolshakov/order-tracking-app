@@ -53,10 +53,18 @@ namespace OrderTrackingWebAPI.Controllers
 
         [HttpPost]
         [Route("GetOrders")]
-        public IEnumerable<Order> Get([FromBody] FilterModel filterModel)
+        public IEnumerable<Order> GetOrders([FromBody] FilterModel filterModel)
         {
-            var a = filterModel.LastName;
             return orders;
         }
+
+
+        [HttpGet]
+        [Route("GetOrder/{id}")]
+        public Order GetOrder(int id)
+        {
+            return orders.FirstOrDefault(item => item.ID == id);
+        }
+    
     }
 }
