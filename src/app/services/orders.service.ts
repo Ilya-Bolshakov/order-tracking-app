@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { IFilterModel } from '../models/IFilterModel';
 import { IOrder } from '../models/IOrder';
 
 @Injectable({
@@ -7,7 +9,9 @@ import { IOrder } from '../models/IOrder';
 })
 export class OrdersService {
 
-  constructor() { }
+  API_URL:string = 'https://localhost:44363/api/OrderTracking';
+
+  constructor(private http: HttpClient) { }
 
   orders: IOrder[] = [
     {
@@ -100,8 +104,14 @@ export class OrdersService {
     }
   ];  
 
-  getOrders(): Observable<IOrder[]> {
-    return of(this.orders);
+  // getOrders(): Observable<IOrder[]> {
+  //   return of(this.orders);
+  // }
+
+  getOrders(filterModel: IFilterModel): Observable<IOrder[]> {
+    console.log("wdwd");
+    return this.http.post<IOrder[]>(this.API_URL + '/GetOrders', filterModel);
+    //return of(this.orders);
   }
 
   getOrder(id: number): IOrder {

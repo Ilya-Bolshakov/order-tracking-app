@@ -30,7 +30,7 @@ export class OrderListComponent implements OnInit {
     if (!this.comparableFilterObjects(this.filterModel, filterModel))
     {
       this.setupNewPropetiesForFilterModel(filterModel);
-      this.service.getOrders().subscribe(result => {
+      this.service.getOrders(this.filterModel).subscribe(result => {
         this.orders = result;
         this.pageModel.totalLength = result.length;
       });
@@ -50,7 +50,7 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterModel = {lastName: '', order:''};
-    this.service.getOrders().subscribe(result => {
+    this.service.getOrders(this.filterModel).subscribe(result => {
       this.orders = result;
       this.pageModel.totalLength = result.length;
     });
