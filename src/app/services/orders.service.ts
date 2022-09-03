@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { IFilterModel } from '../models/IFilterModel';
 import { IOrder } from '../models/IOrder';
 
@@ -108,12 +108,24 @@ export class OrdersService {
   //   return of(this.orders);
   // }
 
-  getOrders(filterModel: IFilterModel): Observable<IOrder[]> {
-    return this.http.post<IOrder[]>(this.API_URL + '/GetOrders', filterModel);
-    //return of(this.orders);
+  private handleError (operation = 'operation') {
+    return (error: any): Observable<string> => {
+   
+      // TODO: send the error to remote logging infrastructure
+      //console.error(error); // log to console instead
+   
+      // Let the app keep running by returning an empty result.
+      return of(error.message);
+    };
   }
 
-  getOrder(id: number): Observable<IOrder> {
-    return this.http.get<IOrder>(this.API_URL + '/GetOrder/' + id);
+  getOrders(filterModel: IFilterModel): Observable<any> {
+    return this.http.post<IOrder[]>(this.API_URL + '/GetOrders', filterModel).pipe(
+      catchError(this.handleError('getOrder')));
   }
+
+  getOrder(id: number): Observable<any> {
+    return this.http.get<IOrder>(this.API_URL + '/GetOrder/' + id).pipe(
+  catchError(this.handleError('getOrder')));
+  };
 }

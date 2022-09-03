@@ -16,10 +16,15 @@ export class OrderListComponent implements OnInit {
   orders: IOrder[] = [];
   pageModel!: IPageModel;
   filterModel!: IFilterModel;
+  isLoading: boolean;
+  hasError: boolean;
+  errorMessage!: string;
 
   constructor (private service: OrdersService) {
     this.pageModel = {currentPage: 1, pageSize:5, totalLength: 0};
     this.pageModel.currentPage = 1;
+    this.isLoading = true;
+    this.hasError = false;
   }
   onChanged(pageSize: number) {
     this.pageModel.pageSize = pageSize;
@@ -51,8 +56,18 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
     this.filterModel = {lastName: '', order:''};
     this.service.getOrders(this.filterModel).subscribe(result => {
-      this.orders = result;
-      this.pageModel.totalLength = result.length;
+      console.log(typeof(result));
+      if (typeof(result) === "string")
+      {
+        this.hasError = true;
+        this.errorMessage = result;
+      }
+      else {
+        this.orders = result;
+        this.pageModel.totalLength = result.length;
+      }
+      
+      this.isLoading = false;
     });
     this.pageModel.currentPage = 1;
     this.pageModel.pageSize = 5;

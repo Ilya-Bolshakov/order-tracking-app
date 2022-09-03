@@ -1,4 +1,14 @@
-<div class="list-group">
+<div *ngIf="isLoading; else loaded">
+  <div class="container">
+    <div class="alert alert-primary" role="alert">
+      Загрузка...
+    </div>
+  </div>
+</div>
+
+<ng-template #loaded>
+ <div *ngIf="!hasError; else error">
+  <div class="list-group">
     <a [routerLink]="[order.id]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders | 
     paginate : { itemsPerPage: pageModel.pageSize,
                  currentPage: pageModel.currentPage,
@@ -26,3 +36,13 @@
     </nav>
   </div>
 </div>
+ </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="container">
+    <div class="alert alert-dark" role="alert">
+      {{errorMessage}}
+    </div>
+  </div>
+</ng-template>
