@@ -56,7 +56,6 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
     this.filterModel = {lastName: '', order:''};
     this.service.getOrders(this.filterModel).subscribe(result => {
-      console.log(typeof(result));
       if (typeof(result) === "string")
       {
         this.hasError = true;
