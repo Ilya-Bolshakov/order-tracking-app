@@ -1,4 +1,4 @@
-﻿namespace WebAPIOrderTracking
+namespace WebAPIOrderTracking
 {
     public class Order
     {

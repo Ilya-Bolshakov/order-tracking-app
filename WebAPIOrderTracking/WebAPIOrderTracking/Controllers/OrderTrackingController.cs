@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using WebAPIOrderTracking.Models;
 using WebAPIOrderTracking;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OrderTrackingWebAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/OrderTracking")]
     public class OrderTrackingController : ControllerBase
     {
