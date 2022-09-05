@@ -12,4 +12,14 @@ export class NavigateComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isAuth: boolean = true;
+
+  Auth(): boolean {
+    return true;
+  }
+
+  logOut() {
+    localStorage.removeItem("jwt");
+  }
+
 }

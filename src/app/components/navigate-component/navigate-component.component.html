@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="isAuth; else noLogin" class="container">
   <nav ngxNavbarDynamicExpand class="navbar-light bg-light">
     <div class="container-fluid">
       <button class="navbar-toggler"
@@ -23,9 +23,41 @@
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/completedOrders">Все выполненные заказы</a>
           </li>
+          <li class="nav-item offset-9">
+            <button class="btn btn-outline-success" aria-current="page" (click)="logOut()">Выйти</button>
+          </li>
         </ul>
       </ngx-navbar-collapse>
     </div>
   </nav>
-  
 </div>
+
+<ng-template #noLogin>
+  <div class="container">
+    <nav ngxNavbarDynamicExpand class="navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler"
+          type="button"
+          (click)="collapse.toggle()"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="
+            navbar-toggler-icon
+            d-flex
+            align-items-center
+            justify-content-center">
+          </span>
+        </button>
+        <a class="navbar-brand" routerLink="/">Главная</a>
+        <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/login">Войти</a>
+            </li>
+          </ul>
+        </ngx-navbar-collapse>
+      </div>
+    </nav>
+  </div>
+</ng-template>
