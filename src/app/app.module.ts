@@ -18,6 +18,7 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -32,6 +33,7 @@ import { FooterComponent } from './footer/footer.component';
     PaginationComponentComponent,
     CompletedOrdersComponent,
     FooterComponent,
+    LoginComponent,
     
   ],
   imports: [

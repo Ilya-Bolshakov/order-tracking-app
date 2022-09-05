@@ -4,11 +4,13 @@ import { AppComponent } from './app.component';
 import { CompletedOrdersComponent } from './components/completed-orders/completed-orders.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { OrderComponent } from './components/order/order.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: 'orderList/:id', component: OrderComponent},
   {path: 'orderList', component: OrderListComponent},
-  {path: 'completedOrders', component: CompletedOrdersComponent }
+  {path: 'completedOrders', component: CompletedOrdersComponent },
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
