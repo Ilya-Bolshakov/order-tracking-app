@@ -24,8 +24,8 @@ namespace WebAPIOrderTracking.Controllers
                         var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
                         var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                         var tokeOptions = new JwtSecurityToken(
-                        issuer: "https://localhost:44364",
-                        audience: "https://localhost:44364",
+                        issuer: "https://localhost:7195",
+                        audience: "https://localhost:7195",
                         claims: new List<Claim>(),
                         expires: DateTime.Now.AddMinutes(5),
                         signingCredentials: signinCredentials

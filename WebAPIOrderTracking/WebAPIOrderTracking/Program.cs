@@ -10,55 +10,55 @@ namespace WebAPIOrderTracking
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            builder.Services.AddAuthentication(opt =>
-            {
+      // Add services to the container.
+            builder.Services.AddAuthentication(opt => {
               opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
               opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
+            })
+              .AddJwtBearer(options =>
+              {
               options.TokenValidationParameters = new TokenValidationParameters
               {
                 ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
-                ValidIssuer = "http://localhost:44364",
-                ValidAudience = "https://localhost:44364",
+                ValidIssuer = "https://localhost:7195",
+                ValidAudience = "https://localhost:7195",
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
               };
-            });
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            builder.Services.AddCors(c =>
+              });
+
+            builder.Services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyHeader());
+              options.AddPolicy("EnableCORS", builder =>
+              {
+                builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+              });
             });
 
+            builder.Services.AddControllers();
+
             var app = builder.Build();
+            app.UseCors("EnableCORS");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                
             }
 
             app.UseHttpsRedirection();
 
+            app.UseCors("EnableCORS");
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyHeader());
-
             app.MapControllers();
 
-            app.UseStaticFiles();
-
             app.Run();
-        }
+    }
     }
 }

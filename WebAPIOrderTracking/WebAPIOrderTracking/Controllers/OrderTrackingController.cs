@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 namespace OrderTrackingWebAPI.Controllers
 {
     [ApiController]
-    [Authorize]
     [Route("api/OrderTracking")]
     public class OrderTrackingController : ControllerBase
     {
@@ -55,6 +54,7 @@ namespace OrderTrackingWebAPI.Controllers
 
         [HttpPost]
         [Route("GetOrders")]
+        [Authorize]
         public IEnumerable<Order> GetOrders([FromBody] FilterModel filterModel)
         {
             return orders;
@@ -62,6 +62,7 @@ namespace OrderTrackingWebAPI.Controllers
 
 
         [HttpGet]
+        [Authorize]
         [Route("GetOrder/{id}")]
         public Order GetOrder(int id)
         {
