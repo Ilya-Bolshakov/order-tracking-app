@@ -1,4 +1,4 @@
-<div *ngIf="isAuth; else noLogin" class="container">
+<div *ngIf="isUserAuthenticated(); else noLogin" class="container">
   <nav ngxNavbarDynamicExpand class="navbar-light bg-light">
     <div class="container-fluid">
       <button class="navbar-toggler"

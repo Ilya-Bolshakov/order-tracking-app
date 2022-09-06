@@ -5,11 +5,12 @@ import { CompletedOrdersComponent } from './components/completed-orders/complete
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { OrderComponent } from './components/order/order.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: 'orderList/:id', component: OrderComponent},
-  {path: 'orderList', component: OrderListComponent},
-  {path: 'completedOrders', component: CompletedOrdersComponent },
+  {path: 'orderList/:id', component: OrderComponent, canActivate: [AuthGuard]},
+  {path: 'orderList', component: OrderListComponent, canActivate: [AuthGuard]},
+  {path: 'completedOrders', component: CompletedOrdersComponent, canActivate: [AuthGuard] },
   {path: 'login', component: LoginComponent}
 ];
 

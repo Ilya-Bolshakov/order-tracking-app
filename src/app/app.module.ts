@@ -19,7 +19,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { JwtModule } from "@auth0/angular-jwt";
 
+
+export function tokenGetter() { 
+  return localStorage.getItem("jwt"); 
+}
 
 
 @NgModule({
@@ -45,6 +50,13 @@ import { LoginComponent } from './login/login.component';
     NgxPaginationModule,
     FormsModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44364"],
+        disallowedRoutes: []
+      }
+    }),
     
   ],
   providers: [],

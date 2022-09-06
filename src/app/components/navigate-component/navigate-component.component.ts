@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-navigate-component',
@@ -7,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigateComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private jwtHelper: JwtHelperService) { }
 
   ngOnInit(): void {
   }
 
-  isAuth: boolean = true;
-
-  Auth(): boolean {
-    return true;
+  isUserAuthenticated = (): boolean => {
+    const token = localStorage.getItem("jwt");
+    if (token && !this.jwtHelper.isTokenExpired(token)){
+      return true;
+    }
+    return false;
   }
 
   logOut() {
