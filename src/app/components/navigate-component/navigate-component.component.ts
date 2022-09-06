@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 
@@ -9,7 +11,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class NavigateComponentComponent implements OnInit {
 
-  constructor(private jwtHelper: JwtHelperService) { }
+  constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,7 @@ export class NavigateComponentComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem("jwt");
+    this.router.navigateByUrl('/login');
   }
 
 }
