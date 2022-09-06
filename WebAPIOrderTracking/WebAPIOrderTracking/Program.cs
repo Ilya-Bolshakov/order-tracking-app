@@ -25,8 +25,8 @@ namespace WebAPIOrderTracking
                 ValidateAudience = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
-                ValidIssuer = "https://localhost:5001",
-                ValidAudience = "https://localhost:5001",
+                ValidIssuer = "http://localhost:44364",
+                ValidAudience = "https://localhost:44364",
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
               };
             });
