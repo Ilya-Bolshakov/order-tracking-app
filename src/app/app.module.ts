@@ -20,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from "@auth0/angular-jwt";
+import { MainComponentComponent } from './components/main-component/main-component.component';
 
 
 export function tokenGetter() { 
@@ -39,6 +40,7 @@ export function tokenGetter() {
     CompletedOrdersComponent,
     FooterComponent,
     LoginComponent,
+    MainComponentComponent,
     
   ],
   imports: [
