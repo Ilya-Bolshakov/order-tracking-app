@@ -41,7 +41,7 @@ namespace WebAPIOrderTracking.Models.Entities
                     .HasColumnName("username");
 
                 entity.Property(e => e.Userpassword)
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .HasColumnName("userpassword");
             });
 
