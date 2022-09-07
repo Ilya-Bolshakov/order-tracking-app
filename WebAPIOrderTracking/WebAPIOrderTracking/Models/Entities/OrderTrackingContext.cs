@@ -22,7 +22,7 @@ namespace WebAPIOrderTracking.Models.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ordertracking;User Id=postgres;Password=admin;");
+                optionsBuilder.UseNpgsql();
             }
         }
 
