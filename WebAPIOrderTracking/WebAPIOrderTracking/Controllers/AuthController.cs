@@ -5,7 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using WebAPIOrderTracking.Models;
-
+using WebAPIOrderTracking.Models.Entities;
 
 namespace WebAPIOrderTracking.Controllers
 {
@@ -13,6 +13,13 @@ namespace WebAPIOrderTracking.Controllers
       [ApiController]
       public class AuthController : ControllerBase
       {
+            private readonly OrderTrackingContext _context;
+
+            public AuthController(OrderTrackingContext context)
+            {
+               _context = context;
+            }
+
             [HttpPost("login")]
             public IActionResult Login([FromBody] LoginModel user)
             {
