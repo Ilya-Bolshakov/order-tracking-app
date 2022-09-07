@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,7 +9,7 @@ using WebAPIOrderTracking.Models;
 
 namespace WebAPIOrderTracking.Controllers
 {
-  [Route("api/auth")]
+      [Route("api/auth")]
       [ApiController]
       public class AuthController : ControllerBase
       {
@@ -19,6 +20,7 @@ namespace WebAPIOrderTracking.Controllers
                   {
                         return BadRequest("Invalid client request");
                   }
+                  
                   if (user.UserName == "johndoe" && user.Password == "def@123")
                   {
                         var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
@@ -33,7 +35,7 @@ namespace WebAPIOrderTracking.Controllers
                         var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
                         return Ok(new AuthenticatedResponse { Token = tokenString });
                   }
-            return Unauthorized();
+                  return Unauthorized();
             }
       }
 }
