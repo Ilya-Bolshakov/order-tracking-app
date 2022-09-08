@@ -8,22 +8,25 @@
 
 <ng-template #loaded>
  <div *ngIf="!hasError; else error">
-  <div class="list-group">
-    <a [routerLink]="[order.id]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders | 
-    paginate : { itemsPerPage: pageModel.pageSize,
-                 currentPage: pageModel.currentPage,
-                 totalItems: pageModel.totalLength }">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{order.id}}</h5>
-            <small>{{order.visitDate}}</small>
-          </div>
-          <p class="mb-1">Некоторый заполнитель в абзаце.</p>
-          <p>И немного мелкого шрифта.</p>
-    </a>
-</div>
+  <div class="container">
+    <div class="list-group marBot">
+      <a [routerLink]="[order.id]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders | 
+      paginate : { itemsPerPage: pageModel.pageSize,
+                   currentPage: pageModel.currentPage,
+                   totalItems: pageModel.totalLength }">
+          <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{order.nameOrder}}</h5>
+              <small>{{order.visitDate | date:'EEEE, d MMMM, y, h:mm:ss': '0' :'ru'}}</small>
+            </div>
+            <h6 class="mb-1">Заказ №{{order.id}}</h6>
+            <p>И немного мелкого шрифта.</p>
+      </a>
+  </div>
+  </div>
+ 
 <app-dropdown-page-size (onChanged)="onChanged($event)"></app-dropdown-page-size>
 <div class="row gy-2 mar-minus">
-  <div class="col-sm-8 col-md-12 msm-4 mar">
+  <div class="col-sm-8 col-md-12 msm-4 marTop">
     <app-dropdown-filter (onChangedFilter)="onChangedFilter($event)"></app-dropdown-filter>
   </div>
   <div class="col-sm-4 col-md-12">

@@ -5,8 +5,12 @@
     text-decoration: none;
   }
 
-.mar {
+.marTop {
     margin-top: 15px;
+}
+
+.marBot {
+    margin-bottom: 15px;
 }
 
 .mar-minus {
