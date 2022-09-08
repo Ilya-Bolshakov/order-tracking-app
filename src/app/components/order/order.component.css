@@ -1,0 +1,18 @@
+.align {
+    text-decoration:underline;
+    color:darkslategray;
+    font-size: 24px;
+}
+
+.cardFontSize28 {
+    font-size: 28px;
+}
+
+
+.cardFontSize22 {
+    font-size: 22px;
+}
+
+.black {
+    color: black;
+}

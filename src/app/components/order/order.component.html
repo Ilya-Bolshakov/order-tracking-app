@@ -7,7 +7,18 @@
 </div>
 <ng-template #loaded>
     <div *ngIf="hasError == false;else error">
-        {{order.id}}, {{order.lastName}},<h6 class="mb-1">Заказ №{{order.id}}</h6>
+      <div class="container">
+        <div class="card mb-3 mt-4">
+          <div class="card-body">
+            <h5 class="card-title cardFontSize28">{{order.nameOrder}}</h5>
+            <p class="card-text align">Заказ для: {{order.firstName}} {{order.lastName}}</p>
+            <p class="card-text">Следующая дата визита: {{order.visitDate | date:'EEEE, d MMMM, y, h:mm:ss': '0' :'ru'}}</p>
+            <p class="card-text align black">Описание</p>
+            <p class="card-text cardFontSize22">{{order.description}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
     </div>
 </ng-template>
 <ng-template #error>
