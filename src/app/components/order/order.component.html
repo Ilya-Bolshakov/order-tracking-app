@@ -7,7 +7,7 @@
 </div>
 <ng-template #loaded>
     <div *ngIf="hasError == false;else error">
-        {{order.id}}, {{order.lastName}}
+        {{order.id}}, {{order.lastName}},<h6 class="mb-1">Заказ №{{order.id}}</h6>
     </div>
 </ng-template>
 <ng-template #error>

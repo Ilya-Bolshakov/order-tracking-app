@@ -20,7 +20,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 1,
@@ -28,7 +28,7 @@ export class OrdersService {
       lastName: 'rnd2',
       visitDate: new Date(2022, 5, 1),
       nameOrder: 'order2',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 4,
@@ -52,7 +52,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 5,
@@ -60,7 +60,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 6,
@@ -68,7 +68,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 7,
@@ -76,7 +76,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 8,
@@ -84,7 +84,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 9,
@@ -92,7 +92,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     },
     {
       id: 10,
@@ -100,7 +100,7 @@ export class OrdersService {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     }
   ];  
 

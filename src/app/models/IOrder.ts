@@ -4,5 +4,5 @@ export interface IOrder {
     lastName: string;
     visitDate: Date;
     nameOrder: string;
-    descritpion: string;
+    description: string;
 }

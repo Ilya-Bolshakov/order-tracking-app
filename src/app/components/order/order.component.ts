@@ -27,7 +27,7 @@ export class OrderComponent implements OnInit, OnDestroy {
       lastName: 'rnd1',
       visitDate: new Date,
       nameOrder: 'order1',
-      descritpion: 'desc'
+      description: 'desc'
     };
     this.isLoading = true;
     this.hasError = false;
