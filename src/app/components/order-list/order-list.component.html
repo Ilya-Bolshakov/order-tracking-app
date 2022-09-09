@@ -22,6 +22,13 @@
       </a>
   </div>
   </div>
+  <div class="container mb-2">
+    <div class="row">
+      <div class="col-2">
+        <button type="button" routerLink="/addItem" class="btn btn-warning">Добавить заказ</button>
+      </div>
+    </div>
+  </div>
  
 <app-dropdown-page-size (onChanged)="onChanged($event)"></app-dropdown-page-size>
 <div class="row gy-2 mar-minus">
@@ -36,6 +43,7 @@
         nextLabel="Следующая" ></pagination-controls>
       </ul>
     </nav>
+    
   </div>
 </div>
  </div>

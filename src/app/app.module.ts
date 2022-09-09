@@ -21,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { MainComponentComponent } from './components/main-component/main-component.component';
-import '@angular/common/locales/global/ru'
+import '@angular/common/locales/global/ru';
+import { AddItemComponent } from './components/add-item/add-item.component'
 
 
 export function tokenGetter() { 
@@ -42,6 +43,7 @@ export function tokenGetter() {
     FooterComponent,
     LoginComponent,
     MainComponentComponent,
+    AddItemComponent,
     
   ],
   imports: [
