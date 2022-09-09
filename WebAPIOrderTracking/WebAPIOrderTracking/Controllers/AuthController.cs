@@ -27,9 +27,9 @@ namespace WebAPIOrderTracking.Controllers
                   if (user is null)
                   {
                         return BadRequest("Invalid client request");
-                  }
-
+                  }                 
                   var users = _context.Users;
+
                   var findUser = users.FirstOrDefault(u => u.Username == user.UserName);
 
                   if (findUser != null)
