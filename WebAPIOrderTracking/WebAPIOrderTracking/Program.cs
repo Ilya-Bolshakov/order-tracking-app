@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using WebAPIOrderTracking.Models.Entities;
 
 namespace WebAPIOrderTracking
 {
@@ -37,6 +39,11 @@ namespace WebAPIOrderTracking
                 .AllowAnyHeader()
                 .AllowAnyMethod();
               });
+            });
+
+            builder.Services.AddDbContext<OrderTrackingContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("Connection"));
             });
 
             builder.Services.AddControllers();
