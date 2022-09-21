@@ -5,4 +5,5 @@ export interface IOrder {
     visitDate: Date;
     nameOrder: string;
     description: string;
+    updateDate: Date;
 }
