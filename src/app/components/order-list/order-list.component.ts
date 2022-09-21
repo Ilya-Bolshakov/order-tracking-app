@@ -62,6 +62,7 @@ export class OrderListComponent implements OnInit {
         this.errorMessage = result;
       }
       else {
+        console.log(result);
         this.orders = result;
         this.pageModel.totalLength = result.length;
       }

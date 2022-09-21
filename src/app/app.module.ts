@@ -21,9 +21,11 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { MainComponentComponent } from './components/main-component/main-component.component';
-import '@angular/common/locales/global/ru';
+import { registerLocaleData } from '@angular/common';
+import localeRU from '@angular/common/locales/ru'
 import { AddItemComponent } from './components/add-item/add-item.component'
 
+registerLocaleData(localeRU);
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 

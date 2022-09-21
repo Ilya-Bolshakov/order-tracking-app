@@ -10,15 +10,15 @@
  <div *ngIf="!hasError; else error">
   <div class="container">
     <div class="list-group marBot">
-      <a [routerLink]="[order.Orderid]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders | 
+      <a [routerLink]="[order.orderid]" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let order of orders | 
       paginate : { itemsPerPage: pageModel.pageSize,
                    currentPage: pageModel.currentPage,
                    totalItems: pageModel.totalLength }">
           <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{order.Ordername}}</h5>
-              <small>{{order.Visitdate | date:'EEEE, d MMMM, y, h:mm:ss': '0' :'ru'}}</small>
+              <h5 class="mb-1">{{order.ordername}}</h5>
+              <small>{{order.visitdate | date:'EEEE, d MMMM, y, HH:mm:ss': '0' :'ru'}}</small>
             </div>
-            <p>{{order.Description}}</p>
+            <p>{{order.description}}</p>
       </a>
   </div>
   </div>

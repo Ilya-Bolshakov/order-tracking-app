@@ -1,5 +1,5 @@
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IOrder } from 'src/app/models/IOrder';
@@ -18,13 +18,13 @@ export class AddItemComponent implements OnInit {
 
   constructor(private orderService: OrdersService, private router: Router) {
     this.order = {
-      Orderid: -1,
-      Firstname:'',
-      Lastname: '',
-      Visitdate: new Date,
-      Ordername: '',
-      Description: '',
-      Updatedate: new Date
+      orderid: 0,
+      firstname:'',
+      lastname: '',
+      visitdate: new Date,
+      ordername: '',
+      description: '',
+      updatedate: new Date
     };
     this.hasError = false;
    }
@@ -34,6 +34,7 @@ export class AddItemComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
+      console.log(this.order);
       this.orderService.addOrder(this.order).subscribe({
         next: () => {
           this.router.navigate(["/orderList"]);
