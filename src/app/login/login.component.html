@@ -12,3 +12,8 @@
      <button type="submit" class="btn btn-primary btn-block mb-4">Войти</button>
   </form>
 </div>
+<div class="container">
+  <div *ngIf="invalidLogin" class="alert alert-danger w-100 p-4 d-flex justify-content-center pb-4">
+    Неправильные данные для входа!
+  </div>
+</div>

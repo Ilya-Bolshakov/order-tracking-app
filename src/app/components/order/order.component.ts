@@ -22,13 +22,13 @@ export class OrderComponent implements OnInit, OnDestroy {
   constructor(private activateRoute: ActivatedRoute, private service: OrdersService, private router: Router) { 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
     this.order = {
-      id: -1,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc',
-      updateDate: new Date
+      Orderid: -1,
+      Firstname:'',
+      Lastname: '',
+      Visitdate: new Date,
+      Ordername: '',
+      Description: '',
+      Updatedate: new Date
     };
     this.isLoading = true;
     this.hasError = false;

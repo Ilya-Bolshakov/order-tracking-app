@@ -39,6 +39,6 @@ export class OrdersService {
   };
 
   addOrder(order: IOrder) : Observable<any> {
-    return this.http.post(this.API_URL + '/AddOrder/', order);
+    return this.http.post(this.API_URL + '/AddOrder', order);
   }
 }

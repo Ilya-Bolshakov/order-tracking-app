@@ -2,7 +2,7 @@
     <form #addItemForm="ngForm" (ngSubmit)="onSubmit(addItemForm)">
         <div class="form-group">
           <label class="mb-2" for="orderInput">Заказ</label>
-          <input [(ngModel)]="order.nameOrder" name="orderName" #orderName="ngModel" required type="text" class="form-control" id="orderInput" aria-describedby="emailHelp" placeholder="Название заказа">
+          <input [(ngModel)]="order.Ordername" name="orderName" #orderName="ngModel" required type="text" class="form-control" id="orderInput" aria-describedby="emailHelp" placeholder="Название заказа">
           <small id="emailHelp" class="form-text text-muted"></small>
           <div *ngIf="orderName.touched && orderName.invalid" class="alert alert-danger">
             Требуемое поле!
@@ -10,25 +10,25 @@
         </div>
         <div class="form-group mt-4">
           <label class="mb-2" for="nameInput">Имя</label>
-          <input [(ngModel)]="order.firstName" name="nameFirst" #nameFirst="ngModel" required type="text" class="form-control" id="nameInput" placeholder="Имя">
+          <input [(ngModel)]="order.Firstname" name="nameFirst" #nameFirst="ngModel" required type="text" class="form-control" id="nameInput" placeholder="Имя">
           <div *ngIf="nameFirst.touched && nameFirst.invalid" class="alert alert-danger">
             Требуемое поле!
           </div>
         </div>
         <div class="form-group mt-4">
             <label class="mb-2" for="lastnameInput">Фамилия</label>
-            <input [(ngModel)]="order.lastName" name="nameLast" #nameLast="ngModel" required type="text" class="form-control" id="lastnameInput" placeholder="Фамилия">
+            <input [(ngModel)]="order.Lastname" name="nameLast" #nameLast="ngModel" required type="text" class="form-control" id="lastnameInput" placeholder="Фамилия">
             <div *ngIf="nameLast.touched && nameLast.invalid" class="alert alert-danger">
               Требуемое поле!
             </div>
         </div>
         <div class="form-group mt-4">
           <label class="mb-2" for="visitDate">Время визита</label>
-          <input type="datetime-local" class="form-control" id="visitDate" placeholder="Время">
+          <input type="datetime-local" [(ngModel)]="order.Visitdate" name="vdate" class="form-control" id="visitDate" placeholder="Время">
       </div>
         <div class="form-group mt-4">
             <label class="mb-2">Описание</label>
-            <textarea [(ngModel)]="order.description" name="desc" #desc="ngModel" required class="form-control"></textarea>
+            <textarea [(ngModel)]="order.Description" name="desc" #desc="ngModel" required class="form-control"></textarea>
             <div *ngIf="desc.touched && desc.invalid" class="alert alert-danger">
               Требуемое поле!
             </div>
@@ -37,3 +37,10 @@
         <button type="submit" class="btn btn-primary mt-4">Добавить</button>
       </form>
 </div>
+
+<div class="container">
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{error}}
+  </div>
+</div>
+
