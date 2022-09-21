@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
-
+import { MatDialogModule } from '@angular/material/dialog'
 
 import { AppComponent } from './app.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
@@ -46,6 +46,7 @@ export function tokenGetter() {
     LoginComponent,
     MainComponentComponent,
     AddItemComponent,
+
     
   ],
   imports: [
@@ -64,7 +65,7 @@ export function tokenGetter() {
         disallowedRoutes: []
       }
     }),
-    
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { IOrder } from 'src/app/models/IOrder';
 import { OrdersService } from 'src/app/services/orders.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
   selector: 'app-order',
@@ -19,7 +21,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   hasError: boolean;
   errorMessage!: string;
 
-  constructor(private activateRoute: ActivatedRoute, private service: OrdersService, private router: Router) { 
+  constructor(private activateRoute: ActivatedRoute, private service: OrdersService, private router: Router, private matDialog:MatDialog) { 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
     this.order = {
       orderid: -1,
@@ -53,5 +55,12 @@ export class OrderComponent implements OnInit, OnDestroy {
     if (this.subscription !== null) {
       this.subscription.unsubscribe();
     }
+  }
+
+  openDialog() {
+    this.matDialog.open(ConfirmDeleteDialogComponent, {
+      width: "350px",
+      height: "150px"
+    });
   }
 }
