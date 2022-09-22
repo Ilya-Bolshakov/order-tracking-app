@@ -12,7 +12,7 @@
           <div class="card-body">
             <h5 class="card-title cardFontSize28">{{order.ordername}}</h5>
             <p class="card-text align">Заказ для: {{order.firstname}} {{order.lastname}}</p>
-            <p class="card-text">Следующая дата визита: {{order.visitdate | date:'EEEE, d MMMM, y, hh:mm:ss': '0' :'ru'}}</p>
+            <p class="card-text">Следующая дата визита: {{order.visitdate | date:'EEEE, d MMMM, y, HH:mm:ss': '0' :'ru'}}</p>
             <p class="card-text align black">Описание</p>
             <p class="card-text cardFontSize22">{{order.description}}</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>

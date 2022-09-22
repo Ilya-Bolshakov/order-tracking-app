@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { IFilterModel } from '../models/IFilterModel';
@@ -40,5 +40,11 @@ export class OrdersService {
 
   addOrder(order: IOrder) : Observable<any> {
     return this.http.post(this.API_URL + '/AddOrder', order);
+  }
+
+  deleteOrder(id: number) : Observable<any> {
+    return this.http.delete(this.API_URL + '/DeleteOrder/', {
+      params: new HttpParams().set('id', id)
+    });
   }
 }

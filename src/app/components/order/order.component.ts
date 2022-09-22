@@ -7,6 +7,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-order',
@@ -59,8 +60,9 @@ export class OrderComponent implements OnInit, OnDestroy {
 
   openDialog() {
     this.matDialog.open(ConfirmDeleteDialogComponent, {
-      width: "350px",
-      height: "150px"
+      width: "360px",
+      height: "150px",
+      data: this.order.orderid
     });
   }
 }
