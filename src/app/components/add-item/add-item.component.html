@@ -2,7 +2,7 @@
     <form #addItemForm="ngForm" (ngSubmit)="onSubmit(addItemForm)">
         <div class="form-group">
           <label class="mb-2" for="orderInput">Заказ</label>
-          <input [(ngModel)]="order.ordername" name="orderName" #orderName="ngModel" required pattern="[A-Za-zА-Яа-яЁё0-9]+" type="text" class="form-control" id="orderInput" aria-describedby="emailHelp" placeholder="Название заказа">
+          <input [(ngModel)]="order.ordername" name="orderName" #orderName="ngModel" required pattern="[A-Za-zА-Яа-яЁё0-9 ]+" type="text" class="form-control" id="orderInput" aria-describedby="emailHelp" placeholder="Название заказа">
           <small id="emailHelp" class="form-text text-muted"></small>
           <div *ngIf="orderName.touched && orderName.invalid" class="alert alert-danger">
             Требуемое поле!
