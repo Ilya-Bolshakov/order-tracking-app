@@ -42,6 +42,10 @@ export class OrdersService {
     return this.http.post(this.API_URL + '/AddOrder', order);
   }
 
+  editOrder(order: IOrder) : Observable<any> {
+    return this.http.put(this.API_URL + '/EditOrder', order);
+  }
+
   deleteOrder(id: number) : Observable<any> {
     return this.http.delete(this.API_URL + '/DeleteOrder/', {
       params: new HttpParams().set('id', id)

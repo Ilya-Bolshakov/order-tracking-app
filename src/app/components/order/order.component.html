@@ -10,7 +10,14 @@
       <div class="container">
         <div class="card mb-3 mt-4">
           <div class="card-body">
-            <h5 class="card-title cardFontSize28">{{order.ordername}}</h5>
+            <div class="row">
+              <div class="col-4">
+                <h5 class="card-title cardFontSize28">{{order.ordername}}</h5>
+              </div>
+              <div class="col-8">
+                <button type="button" routerLink="/editItem/{{order.orderid}}" class="btn btn-info">Редактировать</button>
+              </div>
+            </div>
             <p class="card-text align">Заказ для: {{order.firstname}} {{order.lastname}}</p>
             <p class="card-text">Следующая дата визита: {{order.visitdate | date:'EEEE, d MMMM, y, HH:mm:ss': '0' :'ru'}}</p>
             <p class="card-text align black">Описание</p>

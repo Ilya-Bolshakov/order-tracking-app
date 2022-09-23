@@ -25,6 +25,7 @@ import { registerLocaleData } from '@angular/common';
 import localeRU from '@angular/common/locales/ru'
 import { AddItemComponent } from './components/add-item/add-item.component'
 import { ConfirmDeleteDialogComponent } from './components/confirm-delete-dialog/confirm-delete-dialog.component';
+import { EditItemComponent } from './components/edit-item/edit-item.component';
 
 registerLocaleData(localeRU);
 
@@ -48,6 +49,7 @@ export function tokenGetter() {
     MainComponentComponent,
     AddItemComponent,
     ConfirmDeleteDialogComponent,
+    EditItemComponent,
     
   ],
   imports: [
