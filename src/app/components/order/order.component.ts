@@ -5,6 +5,9 @@ import { Subscription } from 'rxjs';
 import { IOrder } from 'src/app/models/IOrder';
 import { OrdersService } from 'src/app/services/orders.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-order',
@@ -19,15 +22,16 @@ export class OrderComponent implements OnInit, OnDestroy {
   hasError: boolean;
   errorMessage!: string;
 
-  constructor(private activateRoute: ActivatedRoute, private service: OrdersService, private router: Router) { 
+  constructor(private activateRoute: ActivatedRoute, private service: OrdersService, private router: Router, private matDialog:MatDialog) { 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
     this.order = {
-      id: -1,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
+      orderid: -1,
+      firstname:'',
+      lastname: '',
+      visitdate: new Date,
+      ordername: '',
+      description: '',
+      updatedate: new Date
     };
     this.isLoading = true;
     this.hasError = false;
@@ -52,5 +56,13 @@ export class OrderComponent implements OnInit, OnDestroy {
     if (this.subscription !== null) {
       this.subscription.unsubscribe();
     }
+  }
+
+  openDialog() {
+    this.matDialog.open(ConfirmDeleteDialogComponent, {
+      width: "360px",
+      height: "150px",
+      data: this.order.orderid
+    });
   }
 }

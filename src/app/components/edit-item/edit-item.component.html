@@ -1,0 +1,43 @@
+<div class="container">
+    <form #editItemForm="ngForm" (ngSubmit)="onSubmit(editItemForm)">
+        <div class="form-group">
+          <label class="mb-2 h2" for="orderInput">Заказ: {{order.ordername}}</label>
+          <small id="emailHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group mt-4">
+          <label class="mb-2" for="nameInput">Имя</label>
+          <input [(ngModel)]="order.firstname" name="nameFirst" #nameFirst="ngModel" required pattern="[A-Za-zА-Яа-яЁё]+" type="text" class="form-control" id="nameInput" placeholder="Имя">
+          <div *ngIf="nameFirst.touched && nameFirst.invalid" class="alert alert-danger">
+            Требуемое поле!
+          </div>
+        </div>
+        <div class="form-group mt-4">
+            <label class="mb-2" for="lastnameInput">Фамилия</label>
+            <input [(ngModel)]="order.lastname" name="nameLast" #nameLast="ngModel" required pattern="[A-Za-zА-Яа-яЁё]+" type="text" class="form-control" id="lastnameInput" placeholder="Фамилия">
+            <div *ngIf="nameLast.touched && nameLast.invalid" class="alert alert-danger">
+              Требуемое поле!
+            </div>
+        </div>
+        <div class="form-group mt-4">
+          <label class="mb-2" for="visitDate">Время визита</label>
+          <input type="datetime-local" [(ngModel)]="order.visitdate" name="vdate" #visit="ngModel" class="form-control" id="visitDate" placeholder="Время">
+      </div>
+        <div class="form-group mt-4">
+            <label class="mb-2">Описание</label>
+            <textarea [(ngModel)]="order.description" name="desc" #desc="ngModel" required class="form-control"></textarea>
+            <div *ngIf="desc.touched && desc.invalid" class="alert alert-danger">
+              Требуемое поле!
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-4">Редактировать</button>
+      </form>
+</div>
+
+<div class="container">
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{error}}
+  </div>
+</div>
+
+

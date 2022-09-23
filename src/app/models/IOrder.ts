@@ -1,8 +1,9 @@
 export interface IOrder {
-    id: number;
-    firstName: string;
-    lastName: string;
-    visitDate: Date;
-    nameOrder: string;
+    orderid: number;
+    firstname: string;
+    lastname: string;
+    visitdate: Date;
+    ordername: string;
     description: string;
+    updatedate: Date;
 }

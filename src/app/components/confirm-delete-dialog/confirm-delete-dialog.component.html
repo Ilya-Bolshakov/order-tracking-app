@@ -1,0 +1,49 @@
+<div *ngIf="!isDeleted && !hasError;else deleted">
+    <div class="container">
+        <div class="h2 center">
+            Удалить элемент?
+        </div>
+        <div class="row mt-4">
+            <div class="col-6">
+                <button type="button" (click)="confirmDelete()" class="btn btn-danger">Удалить</button>
+            </div>
+            <div class="col-6">
+                <button type="button" (click)="close()" class="btn btn-secondary">Закрыть окно</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #deleted>
+    <div *ngIf="isDeleted && !hasError;else errorTemplate">
+        <div class="row">
+            <div class="row justify-content-center">
+                <div class="col-9 offset-1">
+                    <div class="h2 center">
+                        Заказ удален
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="row justify-content-center mt-2">
+            <div class="col-5">
+                <button type="button" (click)="closeWithDelete()" class="btn btn-primary">Продолжить</button>
+            </div>
+          </div>
+    </div>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <div class="row">
+        <div class="row justify-content-center">
+            <div class="col-12 offset-1">
+                 {{error}}
+            </div>
+          </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col-5">
+            <button type="button" (click)="closeWithDelete()" class="btn btn-primary">Продолжить</button>
+        </div>
+      </div>
+</ng-template>

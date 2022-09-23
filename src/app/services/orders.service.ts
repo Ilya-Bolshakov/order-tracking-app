@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { IFilterModel } from '../models/IFilterModel';
@@ -12,97 +12,6 @@ export class OrdersService {
   API_URL:string = 'https://localhost:7195/api/OrderTracking';
 
   constructor(private http: HttpClient) { }
-
-  orders: IOrder[] = [
-    {
-      id: 0,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 1,
-      firstName:'bb',
-      lastName: 'rnd2',
-      visitDate: new Date(2022, 5, 1),
-      nameOrder: 'order2',
-      description: 'desc'
-    },
-    {
-      id: 2,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 3,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 4,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 5,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 6,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 7,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 8,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 9,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    },
-    {
-      id: 10,
-      firstName:'aa',
-      lastName: 'rnd1',
-      visitDate: new Date,
-      nameOrder: 'order1',
-      description: 'desc'
-    }
-  ];  
 
   // getOrders(): Observable<IOrder[]> {
   //   return of(this.orders);
@@ -128,4 +37,18 @@ export class OrdersService {
     return this.http.get<IOrder>(this.API_URL + '/GetOrder/' + id).pipe(
   catchError(this.handleError('getOrder')));
   };
+
+  addOrder(order: IOrder) : Observable<any> {
+    return this.http.post(this.API_URL + '/AddOrder', order);
+  }
+
+  editOrder(order: IOrder) : Observable<any> {
+    return this.http.put(this.API_URL + '/EditOrder', order);
+  }
+
+  deleteOrder(id: number) : Observable<any> {
+    return this.http.delete(this.API_URL + '/DeleteOrder/', {
+      params: new HttpParams().set('id', id)
+    });
+  }
 }
