@@ -9,7 +9,7 @@ import { IOrder } from '../models/IOrder';
 })
 export class OrdersService {
 
-  API_URL:string = 'http://www.ordertracking.somee.com/api/OrderTracking';
+  API_URL:string = 'https://www.ordertracking.somee.com/api/OrderTracking';
 
   constructor(private http: HttpClient) { }
 
