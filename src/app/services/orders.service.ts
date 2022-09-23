@@ -9,7 +9,7 @@ import { IOrder } from '../models/IOrder';
 })
 export class OrdersService {
 
-  API_URL:string = 'https://localhost:44364/api/OrderTracking';
+  API_URL:string = 'http://jaha12-001-site1.atempurl.com/api/OrderTracking';
 
   constructor(private http: HttpClient) { }
 

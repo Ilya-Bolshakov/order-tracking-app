@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.http.post<IAuthenticatedResponse>("https://localhost:44364/api/auth/login", this.login, {
+      this.http.post<IAuthenticatedResponse>("http://jaha12-001-site1.atempurl.com/api/auth/login", this.login, {
         headers: new HttpHeaders({ "Content-Type": "application/json"})
       })
       .subscribe({
