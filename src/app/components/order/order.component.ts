@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { last, Subscription } from 'rxjs';
 import { IOrder } from 'src/app/models/IOrder';
 import { OrdersService } from 'src/app/services/orders.service';
 import { Router } from '@angular/router';
@@ -21,6 +21,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   isLoading: boolean;
   hasError: boolean;
   errorMessage!: string;
+  lastUpdate!: string
 
   constructor(private activateRoute: ActivatedRoute, private service: OrdersService, private router: Router, private matDialog:MatDialog) { 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
@@ -37,6 +38,33 @@ export class OrderComponent implements OnInit, OnDestroy {
     this.hasError = false;
   }
 
+  calculateLastUpdate() {
+    let now: Date = new Date;
+    let curDate = new Date(this.order.updatedate);
+    let deltaTime = +now - +curDate;
+    console.log(deltaTime);
+    if (deltaTime > 86400000)
+    {
+      this.lastUpdate = 'Последнее обновление ' + Math.floor(deltaTime / 86400000) + ' дня назад';
+      return;
+    }
+    if (deltaTime > 3600000)
+    {
+      this.lastUpdate = 'Последнее обновление ' + Math.floor(deltaTime / 3600000) + ' часа назад';
+      return;
+    }
+    if (deltaTime > 60000)
+    {
+      this.lastUpdate = 'Последнее обновление ' + Math.floor(deltaTime / 60000) + ' минут назад';
+      return;
+    }
+    if (deltaTime < 60000)
+    {
+      this.lastUpdate = 'Последнее обновление менее минуты назад';
+      return;
+    }
+  }
+
   ngOnInit(): void {
     this.service.getOrder(this.id).subscribe(result => {
       this.order = result;
@@ -47,8 +75,10 @@ export class OrderComponent implements OnInit, OnDestroy {
       }
       else {
         this.order = result;
+        this.calculateLastUpdate();
       }
       this.isLoading = false;
+      
     }); 
   }
 
