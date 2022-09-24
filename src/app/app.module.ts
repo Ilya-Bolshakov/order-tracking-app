@@ -64,7 +64,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["ordertracking.somee.com"],
+        allowedDomains: ["www.ordertracking.somee.com"],
         disallowedRoutes: []
       }
     }),
