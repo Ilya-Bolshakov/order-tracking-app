@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   login!: ILoginModel;
   invalidLogin!: boolean;
+  error!: string;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.http.post<IAuthenticatedResponse>("https://www.ordertracking.somee.com/api/auth/login", this.login, {
+      this.http.post<IAuthenticatedResponse>("https://localhost:44364/api/auth/login", this.login, {
         headers: new HttpHeaders({ "Content-Type": "application/json"})
       })
       .subscribe({
@@ -33,7 +34,15 @@ export class LoginComponent implements OnInit {
           this.invalidLogin = false; 
           this.router.navigate(["/"]);
         },
-        error: (err: HttpErrorResponse) => this.invalidLogin = true
+        error: (http: HttpErrorResponse) => {
+          console.log(http.error.message);
+          
+          if (http.error.message === undefined) {
+            http.error.message = 'Сервер недоступен';
+          }
+          this.invalidLogin = true;
+          this.error = http.error.message;
+        }
       })
     }
   }

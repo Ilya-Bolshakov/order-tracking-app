@@ -42,7 +42,6 @@ export class OrderComponent implements OnInit, OnDestroy {
     let now: Date = new Date;
     let curDate = new Date(this.order.updatedate);
     let deltaTime = +now - +curDate;
-    console.log(deltaTime);
     if (deltaTime > 86400000)
     {
       this.lastUpdate = 'Последнее обновление ' + Math.floor(deltaTime / 86400000) + ' дня назад';
